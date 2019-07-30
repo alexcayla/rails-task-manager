@@ -1,0 +1,23 @@
+<h1>My todo manager</h1>
+<div>
+  <%= link_to "+ Add new task", new_task_path %>
+</div>
+
+<br>
+
+<p>
+  Show:
+  <span class="active">Remaining</span>
+  Completed
+  All
+</p>
+
+<% @tasks.each do |task| %>
+  <div>
+    <input type="checkbox" <%= "checked" if task.completed == true %>>
+    <%= link_to task.title, task_path(task) %>
+  </div>
+<% end %>
+
+
+
