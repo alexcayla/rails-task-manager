@@ -1,11 +1,29 @@
 <%= form_for @task do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <%= f.label :details%>
-  <%= f.text_area :details %>
-  <% if @task.new_record? == false %>
-    <%= f.label :completed %>
-    <%= f.check_box :completed %>
-  <% end %>
-  <%= f.button %>
+  <div class="form-group w-50">
+
+      <div class="input-group mb-4">
+        <div class="input-group-prepend">
+          <%= f.label :title, class: 'input-group-text'%>
+        </div>
+        <%= f.text_field :title, class: 'form-control'%>
+      </div>
+
+      <div class="input-group mb-4">
+        <div class="input-group-prepend">
+        <%= f.label :details, class: 'input-group-text'%>
+        </div>
+          <%= f.text_area :details, class: 'form-control' %>
+        </div>
+      </div>
+
+      <div class="input-group mb-4">
+        <% if @task.new_record? == false %>
+          <%= f.label :completed %>
+          <%= f.check_box :completed, class: 'form-control' %>
+        <% end %>
+      </div>
+
+      <%= f.button class: 'btn btn-primary'%>
+    </div>
+  </div>
 <% end %>
